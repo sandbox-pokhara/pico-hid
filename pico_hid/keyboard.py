@@ -13,6 +13,9 @@ class Keyboard:
     def release(self, key: str):
         self.send(f"keyboard_release,{key}\n")
 
+    def release_all(self):
+        self.send("keyboard_release\n")
+
     def press_and_release(self, key: str):
         self.send(f"keyboard_keystroke,{key}\n")
 
