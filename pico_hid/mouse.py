@@ -1,34 +1,24 @@
-import time
-from enum import Enum
-
-from serial import Serial
+from pico_hid.serial_com import send
 
 
-class MouseButton(Enum):
-    LEFT = "left"
-    RIGHT = "right"
+def move(
+    x: int,
+    y: int,
+    monitor_width: int = 1920,
+    monitor_height: int = 1080,
+):
+    x_normalized = x * 32767 // monitor_width
+    y_normalized = y * 32767 // monitor_height
+    return send(f"mouse_move,{x_normalized},{y_normalized}\n")
 
 
-class Mouse:
-    def __init__(self, serial_port: Serial):
-        self.serial_port = serial_port
+def press(button: str = "left"):
+    return send(f"mouse_press_{button}\n")
 
-    def move(self, x: int, y: int):
-        x_normalized = x * 32767 // 1920
-        y_normalized = y * 32767 // 1080
-        self.send(f"mouse_move,{x_normalized},{y_normalized}\n")
 
-    def press(self, button: MouseButton):
-        self.send(f"mouse_press_{button.value}\n")
+def release():
+    return send(f"mouse_release\n")
 
-    def release(self):
-        self.send(f"mouse_release\n")
 
-    def click(self, button: MouseButton):
-        self.send(f"mouse_click_{button.value}\n")
-
-    def send(self, command: str):
-        self.serial_port.write(command.encode())
-        time.sleep(0.1)  # Mandatory delay
-        echoed_message = self.serial_port.readline().decode().strip()
-        print("Echoed message:", echoed_message)
+def click(button: str = "left"):
+    return send(f"mouse_click_{button}\n")
