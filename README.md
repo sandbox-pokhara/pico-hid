@@ -4,11 +4,17 @@ Python package to control pico spoofed as keyboard/mouse via serial pins (uart)
 
 ## Installation
 
-You can install the package via pip:
+1. Boot pico into bootloader mode.
+1. Download `pico-hid.uf2` from https://github.com/sandbox-pokhara/pico-hid-firmware/releases.
+1. Copy `pico-hid.uf2` firmware to pico.
+1. Connect pico to a controller device (a raspberry pi zero, raspberry pi 3, raspberry pi 4, pc with uart to usb, etc) via UART pins and target device via USB.
 
-```bash
-pip install pico-hid
-```
+   ![RPi 4 - RPi Pico](rpi_4_pico.png)
+
+1. Install `pico-hid` to the controller device.
+   ```
+   pip install pico-hid
+   ```
 
 ## Usage
 
