@@ -13,9 +13,16 @@ pip install pico-hid
 ## Usage
 
 ```python
-import pico_hid
+from pico_hid import keyboard
+from pico_hid import mouse
 
-# usage examples here
+mouse.move(100, 100)
+mouse.click()
+
+keyboard.press("control_left")
+keyboard.press_and_release("a")
+keyboard.release("control_left")
+keyboard.write("hello world")
 ```
 
 ## License
