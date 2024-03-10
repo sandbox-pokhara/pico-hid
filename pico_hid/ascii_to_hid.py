@@ -302,3 +302,26 @@ conv_table = [
     (1, HID_KEY_GRAVE),  # 0x7E ~
     (0, HID_KEY_DELETE),  # 0x7F Delete
 ]
+
+key_mappings = {
+    "control_left": HID_KEY_CONTROL_LEFT,
+    "shift_left": HID_KEY_SHIFT_LEFT,
+    "alt_left": HID_KEY_ALT_LEFT,
+    "gui_left": HID_KEY_GUI_LEFT,
+    "control_right": HID_KEY_CONTROL_RIGHT,
+    "shift_right": HID_KEY_SHIFT_RIGHT,
+    "alt_right": HID_KEY_ALT_RIGHT,
+    "gui_right": HID_KEY_GUI_RIGHT,
+    "f1": HID_KEY_F1,
+    "f2": HID_KEY_F2,
+    "f3": HID_KEY_F3,
+    "f4": HID_KEY_F4,
+    "f5": HID_KEY_F5,
+    "f6": HID_KEY_F6,
+    "f7": HID_KEY_F7,
+    "f8": HID_KEY_F8,
+    "f9": HID_KEY_F9,
+    "f10": HID_KEY_F10,
+    "f11": HID_KEY_F11,
+    "f12": HID_KEY_F12,
+}
